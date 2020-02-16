@@ -1,9 +1,7 @@
 from flask import Flask, request
 from flask_sqlalchemy import SQLAlchemy
 from flask import render_template
-from parser import get_key_words
-from youtubeapi import youtube_searchURL
-import json
+# from parser import get_key_words
 
 from firebase_admin import credentials, firestore, initialize_app
 
@@ -24,7 +22,7 @@ def index():
     return render_template("index.html")
 
 
-@app.route('/playlist.html')
+@app.route('/playlist')
 def temp():
 
     course_name = request.args.get('search')
