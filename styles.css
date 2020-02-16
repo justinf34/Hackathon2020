@@ -9,16 +9,12 @@
 .div1 { grid-area: 2 / 2 / 3 / 3; }
 .div2 { grid-area: 3 / 2 / 4 / 3; }
 
-html, body {
-    height: 100%;
+.box{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px
 }
 
-html {
-    display: table;
-    margin: auto;
-}
-
-body {
-    display: table-cell;
-    vertical-align: middle;
+a {
+    padding: 50px;
 }
