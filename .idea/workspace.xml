@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="62f0068c-af73-45b9-bc91-2a7e8eb70e46" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/flask-backend/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/flask-backend/app.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1XrSvCQjolO29owxEUywVtcvuqd" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/flask-backend/templates" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Bryan\Documents\GitHub\Hackathon2020\flask-backend\templates" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="62f0068c-af73-45b9-bc91-2a7e8eb70e46" name="Default Changelist" comment="" />
+      <created>1581802948200</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1581802948200</updated>
+      <workItem from="1581802950919" duration="8388000" />
+      <workItem from="1581814629301" duration="2110000" />
+      <workItem from="1581820335988" duration="2272000" />
+      <workItem from="1581825260593" duration="8123000" />
+      <workItem from="1581845856259" duration="4660000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="569" y="295" key="run.anything.popup" timestamp="1581827602942">
+      <screen x="0" y="40" width="1824" height="1176" />
+    </state>
+    <state x="569" y="295" key="run.anything.popup/0.40.1824.1176@0.40.1824.1176" timestamp="1581827602942" />
+    <state x="347" y="224" width="672" height="678" key="search.everywhere.popup" timestamp="1581805896487">
+      <screen x="0" y="40" width="1368" height="872" />
+    </state>
+    <state x="347" y="224" width="672" height="678" key="search.everywhere.popup/0.40.1368.872@0.40.1368.872" timestamp="1581805896487" />
+  </component>
+</project>
