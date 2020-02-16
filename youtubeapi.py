@@ -66,7 +66,29 @@ def youtube_searchURL(keyword):
 
     return IDs
 
+#Returns Stats of a Video given an VIDEO_ID 
+""" "statistics": 
+    "viewCount"
+    "likeCount"
+    "dislikeCount"
+    "favoriteCount"
+    "commentCount" """
+def youtube_searchSTAT(VIDEO_ID):
+    youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION,
+    developerKey=DEVELOPER_KEY)
+
+    # Get credentials and create an API client
+
+    request = youtube.videos().list(
+        part=id, statistics
+        id=VIDEO_ID                    #VIDEO ID
+    )
+    response = request.execute()
+
+    return response
+
 if __name__ == "__main__":
     print(youtube_searchURL("naruto"))
+    print(youtube_searchURL("koY0fIVMS_s"))
 
 
