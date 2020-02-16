@@ -24,7 +24,8 @@
         };
 
         $(document).ready(function(){
-            console.log("i");
+            const result = '{{ result|tojson|safe }}'
+            console.log(result)
             var keywords = 5;
             var results = 5;
             console.log("search: " + getQueryParameters().search);
