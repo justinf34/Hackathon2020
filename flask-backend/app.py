@@ -1,6 +1,7 @@
-from flask import Flask
+from flask import Flask, request
 from flask_sqlalchemy import SQLAlchemy
 from flask import render_template
+from parser import get_key_words
 
 app = Flask(__name__)
 
@@ -14,9 +15,11 @@ def index():
     return render_template("index.html")
 
 
-@app.route('/hi')
+@app.route('/playlist.html')
 def temp():
-    return "search"
+    query = request.args.get('search').split(' ')
+    words = get_key_words(query[0], query[1])
+    return render_template("playlist.html", words=words)
 
 
 if __name__ == '__main__':
