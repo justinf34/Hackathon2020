@@ -14,3 +14,12 @@
     flex-wrap: wrap;
     padding: 5px
 }
+
+img {
+    height: 20vh;
+    
+}
+
+.btn.clicked {
+    background: #ff0;
+}

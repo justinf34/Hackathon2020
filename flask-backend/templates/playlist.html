@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>jQuery UI Tabs - Default functionality</title>
     <link rel="stylesheet" href="{{ url_for('static', filename="css/styles.css")}}">
-    
+
     <link rel="stylesheet" href="{{ url_for('static', filename="css/centre.css")}}">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -52,7 +52,7 @@
                     "</a>" +
                     "</li>");
                 const title = $("<div class=\"alert alert-info\"><strong>\n" +
-                     actualResults[i].keyword+
+                    actualResults[i].keyword +
                     " </strong></div>");
                 $("#tabs").append(title);
                 $("#tabs ul").append(tab);
@@ -69,12 +69,18 @@
                         "<div class=\"card\" style=\"width: 18rem; margin: 10px\">\n" +
                         "  <img src=" + img + " class=\"card-img-top\" alt=\"...\">\n" +
                         "  <div class=\"card-body\">\n" +
-                        "    <h5 class=\"card-title\">Card title " + i + "" + k + " </h5>\n" +
-                        "    <p class=\"card-text\">" + card_text + "</p>\n" +
-                        "    <a href=\"https://www.youtube.com/watch?v=" + actualResults[i].videos[k] + "\" class=\"btn btn-primary\">Watch now</a>\n" +
+                        "    <h5 class=\"card-title\">Card title " + actualResults[i].title[k] + " </h5>\n" +
+                        "    <p class=\"card-text\">" + actualResults[i].title[k] + "</p>\n" +
+                        "  </div>\n" +
+                        "<div class=\"card-footer text-center\"> \n" +
+                        "    <a href=\"https://www.youtube.com/watch?v=" + actualResults[i].videos[k] + "\" class=\"btn  btn-primary float-right \" id=\"right\"> Watch </a >\n" +
+                        "    <a class=\"btn btn-primary float-left \" id=\"like\">like</a>\n" +
+                        "    <a class=\"btn btn-primary \" id=\"dislike\" >dislike</a >\n" +
                         "  </div>\n" +
                         "</div>");
+
                     $(".box" + i).append(card);
+
                 }
             }
         });
@@ -83,6 +89,13 @@
 
 <body>
     <div>
+
+        <div class="jumbotron jumbotron-fluid" style="display: flex; flex-wrap: wrap;">
+            <div class="container">
+                <h1 class="display-4">Course Playlist Generator</h1>
+                <p class="lead">Generate a playlist based on your course outline.</p>
+            </div>
+        </div>
         <form action="playlist" method="GET">
             <div class="input-group mb-3">
                 <input type="text" name="search" class="form-control" placeholder="Course Name and Number" id="course"
@@ -92,12 +105,6 @@
                 </div>
             </div>
         </form>
-        <div class="jumbotron jumbotron-fluid" style="display: flex; flex-wrap: wrap;">
-            <div class="container">
-                <h1 class="display-4">Course Playlist Generator</h1>
-                <p class="lead">Generate a playlist based on your course outline.</p>
-            </div>
-        </div>
 
 
         <div id="tabs">
