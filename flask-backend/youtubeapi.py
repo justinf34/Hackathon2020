@@ -61,7 +61,7 @@ def youtube_searchURL(keyword):
         maxResults=1
     )
     response = request.execute()
-
+    print(response)
     IDs = []
     # Finds the youtube IDs for the path of the youtube URL
     for search_result in response.get('items', []):
