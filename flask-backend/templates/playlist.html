@@ -17,8 +17,8 @@
     <script>
 
         $(document).ready(function(){
-            const keyWords = '{{ words }}'
-            console.log(keyWords)
+            const result = '{{ result|tojson|safe }}'
+            console.log(result)
             var keywords = 5;
             var results = 5;
 

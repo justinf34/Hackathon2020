@@ -2,6 +2,8 @@ from flask import Flask, request
 from flask_sqlalchemy import SQLAlchemy
 from flask import render_template
 from parser import get_key_words
+from youtubeapi import youtube_searchURL
+import json
 
 app = Flask(__name__)
 
@@ -19,7 +21,16 @@ def index():
 def temp():
     query = request.args.get('search').split(' ')
     words = get_key_words(query[0], query[1])
-    return render_template("playlist.html", words=words)
+    returnJSON = []
+    for word in words:
+        video_ids = youtube_searchURL(word)
+        y = json.dumps({
+            'keyword': word,
+            'videos': video_ids
+        })
+        returnJSON.append(y)
+        print(returnJSON[0])
+    return render_template("playlist.html", result=returnJSON)
 
 
 if __name__ == '__main__':
