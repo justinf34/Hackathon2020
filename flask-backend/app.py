@@ -2,7 +2,8 @@ from flask import Flask, request
 from flask_sqlalchemy import SQLAlchemy
 from flask import render_template
 from parser import get_key_words
-
+from youtubeapi import youtube_searchURL
+import json
 from firebase_admin import credentials, firestore, initialize_app
 
 from google.cloud import storage, exceptions
