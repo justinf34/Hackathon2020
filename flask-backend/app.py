@@ -1,7 +1,9 @@
 from flask import Flask, request
 from flask_sqlalchemy import SQLAlchemy
 from flask import render_template
-# from parser import get_key_words
+from parser import get_key_words
+from youtubeapi import youtube_searchURL
+import json
 
 from firebase_admin import credentials, firestore, initialize_app
 
@@ -28,12 +30,18 @@ def temp():
     course_name = request.args.get('search')
     query = course_name.split(' ')
 
+    print(query)
+
     has_course = course_ref.document(course_name).get()
     has_course = has_course.to_dict()
 
-    if has_course is None:
+    data = {
+        'rating': 0
+    }
+
+    returnJSON = []
+    if True:
         words = get_key_words(query[0], query[1])
-        returnJSON = []
         for word in words:
             video_ids = youtube_searchURL(word)
             y = json.dumps({
@@ -42,8 +50,12 @@ def temp():
             })
             returnJSON.append(y)
             print(returnJSON[0])
-    else:
-        return render_template("playlist.html", result=returnJSON)
+            for ids in video_ids:
+                if word:
+                    course_ref.document(course_name).collection(u'Keywords').document(
+                        word).collection(u'Videos').document(ids).set(data)
+
+    return render_template("playlist.html", result=returnJSON)
 
 
 @app.route('/insert')
@@ -59,9 +71,25 @@ def insert():
 
     keyword = 'confidence intervals for means'
     course = course_ref.document(temp)
-    course.collection(u'Keywords').document(
-        keyword).collection(u'Videos').document(vid_id).set(data)
-    return "I added :^)"
+    keywords = course.collection(u'Keywords').stream()
+
+    returnJSON = []
+    for keyword in keywords:
+        vid_ids = []
+        vids = course.collection(u'Keywords').document(
+            keyword.id).collection(u'Videos').stream()
+        for vid in vids:
+            vid_ids.append(vid.id)
+
+        y = json.dumps({
+            'keyword': keyword.id,
+            'videos': vid_ids
+        })
+        returnJSON.append(y)
+
+    print(returnJSON)
+
+    return "hi"
     # course_again = course.to_dict()
     # if course_again is None:
     #     # course = course_ref.document(temp).collection(u'Keywords').document(
