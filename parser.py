@@ -2,8 +2,6 @@ import sys
 import requests
 from bs4 import BeautifulSoup
 
-name = sys.argv[1]
-code = sys.argv[2]
 def get_course_link(course_name):
     url = "https://www.ucalgary.ca/pubs/calendar/current/course-desc-main.html"
     r = requests.get(url).text
@@ -67,15 +65,16 @@ def remove_pun(desc, punIndex):
 
     return remove_pun(arr, punIndex - 1)
 
-try:
-    description = get_desc(get_course_link(name), code)
-    # d2 = remove_word(description, len(common_words) - 1) # doesn't work rn
-    d3 = remove_pun([[description]], len(common_pun) - 1)
-    d4 = []
-    for i in d3:
-        for j in i:
-            if j:
-                d4.append(j.strip())
-    print(d4)
-except:
-    pass
+def get_key_words(course_name, course_code):
+    try:
+        description = get_desc(get_course_link(name), code)
+        # d2 = remove_word(description, len(common_words) - 1) # doesn't work rn
+        d3 = remove_pun([[description]], len(common_pun) - 1)
+        d4 = []
+        for i in d3:
+            for j in i:
+                if j:
+                    d4.append(j.strip())
+        return d4
+    except:
+       return -1 
