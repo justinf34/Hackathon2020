@@ -17,7 +17,7 @@ def index():
     return render_template("index.html")
 
 
-@app.route('/playlist.html')
+@app.route('/playlist')
 def temp():
     query = request.args.get('search').split(' ')
     words = get_key_words(query[0], query[1])

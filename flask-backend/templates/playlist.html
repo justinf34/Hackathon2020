@@ -24,35 +24,35 @@
         };
 
         $(document).ready(function(){
-            const result = '{{ result|tojson|safe }}'
-            console.log(result)
-            var keywords = 5;
-            var results = 5;
+            const backEndResults = '{{ result|tojson|safe }}'
+            console.log(backEndResults)
+            const keywords = 5;
+            const results = 5;
             console.log("search: " + getQueryParameters().search);
-            var search = getQueryParameters().search;
+            const search = getQueryParameters().search;
 
             for(i = 0; i < keywords; i++) {
-                var keyword = i;
-                var tab = $("" +
+                const keyword = i;
+                const tab = $("" +
                     "<li>" +
                         "<a href=\"#tabs-"+i+"\"> " +
                             keyword +
                         "</a>" +
                     "</li>");
-                var title = $("<div class=\"alert alert-info\">\n" +
+                const title = $("<div class=\"alert alert-info\">\n" +
                     i +
                     "</div>");
                 $("#tabs").append(title);
                 $("#tabs ul").append(tab);
-                var card_text = "Some quick example text to build on the card title and make up the bulk of the card's content.";
-                var img = "https://i.ytimg.com/an_webp/K3X2Fv-c3Fc/mqdefault_6s.webp?du=3000&sqp=CMycovIF&rs=AOn4CLCZjCXgiypDr8dotNqMH1NFhlxdQw"
+                const card_text = "Some quick example text to build on the card title and make up the bulk of the card's content.";
+                const img = "https://i.ytimg.com/an_webp/K3X2Fv-c3Fc/mqdefault_6s.webp?du=3000&sqp=CMycovIF&rs=AOn4CLCZjCXgiypDr8dotNqMH1NFhlxdQw"
 
-                 var box = $("<div class='box"+i+"' id='tabs-"+i+"'style='display: flex; flex-wrap: wrap; padding: 5px'></div>");
+                 const box = $("<div class='box"+i+"' id='tabs-"+i+"'style='display: flex; flex-wrap: wrap; padding: 5px'></div>");
                  $('#tabs').append(box);
 
 
                  for( k = 0; k < results; k++) {
-                    var card = $("" +
+                    const card = $("" +
                         "<div class=\"card\" style=\"width: 18rem; margin: 10px\">\n" +
                         "  <img src=" + img + " class=\"card-img-top\" alt=\"...\">\n" +
                         "  <div class=\"card-body\">\n" +
@@ -77,11 +77,11 @@
         </div>
     </div>
 
-    <form action="playlist.html" method="GET">
+    <form action="playlist" method="GET">
         <div class="input-group mb-3">
             <input type="text" name="search" class="form-control" placeholder="Course Name and Number" id="course" aria-label="Recipient's username" aria-describedby="basic-addon2" value="">
             <div class="input-group-append">
-                <input action="playlist.html" type="submit" value="search" class="input-group-text" id="search"/>
+                <input action="playlist" type="submit" value="search" class="input-group-text" id="search"/>
             </div>
         </div>
     </form>
