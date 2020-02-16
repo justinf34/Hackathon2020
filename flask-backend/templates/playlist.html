@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery UI Tabs - Default functionality</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $( function() {
+            $( "#tabs" ).tabs();
+        } );
+    </script>
+
+    <script>
+
+        $(document).ready(function(){
+            console.log("i");
+            var keywords = 5;
+            var results = 5;
+
+            for(i = 0; i < keywords; i++) {
+                var tab = $("" +
+                    "<li>" +
+                        "<a href=\"#tabs-"+i+"\" style='padding: 5px'> " +
+                            "TAB"+
+                        "</a>" +
+                    "</li>");
+
+                $("#tabs ul").append(tab);
+
+                 var box = $("<div class='box"+i+"' id='tabs-"+i+"'style='display: flex; flex-wrap: wrap; padding: 5px'></div>");
+                 $('#tabs').append(box);
+                 for( k = 0; k < results; k++) {
+                    var card = $("" +
+                        "<div class=\"card\" style=\"width: 18rem; margin: 10px\">\n" +
+                        "  <img src=\"...\" class=\"card-img-top\" alt=\"...\">\n" +
+                        "  <div class=\"card-body\">\n" +
+                        "    <h5 class=\"card-title\">Card title "+ i + "" + k +" </h5>\n" +
+                        "    <p class=\"card-text\">Some quick example text to build on the card title and make up the bulk of the card's content.</p>\n" +
+                        "    <a href=\"#\" class=\"btn btn-primary\">Go somewhere</a>\n" +
+                        "  </div>\n" +
+                        "</div>");
+                    $(".box"+i).append(card);
+                 }
+             }
+        });
+    </script>
+</head>
+<body>
+<div class="parent">
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Course Playlist Generator</h1>
+            <p class="lead">Generate a playlist based on your course outline.</p>
+        </div>
+    </div>
+    <div id="tabs">
+        <ul>
+        </ul>
+    </div>
+
+
+</div>
+
+</body>
+</html>

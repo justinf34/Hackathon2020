@@ -1,5 +1,6 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from flask import render_template
 
 app = Flask(__name__)
 
@@ -10,7 +11,12 @@ db = SQLAlchemy(app)
 
 @app.route('/')
 def index():
-    return "<h1 syle='color: red'> Hello World</h1>"
+    return render_template("index.html")
+
+
+@app.route('/hi')
+def temp():
+    return "search"
 
 
 if __name__ == '__main__':
