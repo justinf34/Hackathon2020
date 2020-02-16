@@ -1,9 +1,7 @@
 from flask import Flask, request
 from flask_sqlalchemy import SQLAlchemy
 from flask import render_template
-from parser import get_key_words
-from youtubeapi import youtube_searchURL
-import json
+# from parser import get_key_words
 
 app = Flask(__name__)
 
