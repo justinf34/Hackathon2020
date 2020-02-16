@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="centre.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename="css/styles.css")}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename="css/centre.css")}}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
@@ -37,7 +37,7 @@
                 <div class="input-group mb-3">
                     <input type="text" name="search" class="form-control" placeholder="Course Name and Number" id="course" aria-label="Recipient's username" aria-describedby="basic-addon2" value="">
                     <div class="input-group-append">
-                        <input action="playlist.html" type="submit" value="search" class="input-group-text" id="search"/>
+                        <input action="{ url_for('templates', filename="playlist.html")}" type="submit" value="search" class="input-group-text" id="search"/>
                     </div>
                 </div>
             </form>
@@ -47,6 +47,5 @@
         </div>
         </div>
     </div>
-
 </body>
 </html>
