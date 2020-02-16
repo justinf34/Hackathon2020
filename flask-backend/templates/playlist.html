@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>jQuery UI Tabs - Default functionality</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename="css/styles.css")}}">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -19,6 +19,7 @@
     </script>
 
     <script>
+
         window.getQueryParameters = function(str) {
             return (str || document.location.search).replace(/(^\?)/,'').split("&").map(function(n){return n=n.split("="),this[n[0]]=n[1],this;}.bind({}))[0];
         };
@@ -26,10 +27,26 @@
         $(document).ready(function(){
             const backEndResults = '{{ result|tojson|safe }}'
             console.log(backEndResults)
+            // Initialize Cloud Firestore through Firebase
+
+
             const keywords = 5;
             const results = 5;
             console.log("search: " + getQueryParameters().search);
             const search = getQueryParameters().search;
+
+            firebase.initializeApp({
+                apiKey: "AIzaSyApUUl76PRQKakUlzymbA4mcS5WV-mEVpw",
+                authDomain: 'hackathon2020-a5446.firebaseapp.com',
+                projectId: 'hackathon2020-a5446'
+            });
+            var db = firebase.firestore();
+            var docRef = db.collection("Courses").doc(search).collection("Keywords")
+                .onSnapshot((querySnapshot) => {
+                    querySnapshot.forEach((doc) => {
+                        console.log(doc.id); // For doc name
+                    });
+                });
 
             for(i = 0; i < keywords; i++) {
                 const keyword = i;
