@@ -26,27 +26,13 @@
 
         $(document).ready(function(){
             const backEndResults = '{{ result|tojson|safe }}'
-            console.log(backEndResults)
-            // Initialize Cloud Firestore through Firebase
+            const temp = JSON.parse(backEndResults)
+            const actualResults = temp.array
+            console.log(actualResults)
 
 
             const keywords = 5;
             const results = 5;
-            console.log("search: " + getQueryParameters().search);
-            const search = getQueryParameters().search;
-
-            firebase.initializeApp({
-                apiKey: "AIzaSyApUUl76PRQKakUlzymbA4mcS5WV-mEVpw",
-                authDomain: 'hackathon2020-a5446.firebaseapp.com',
-                projectId: 'hackathon2020-a5446'
-            });
-            var db = firebase.firestore();
-            var docRef = db.collection("Courses").doc(search).collection("Keywords")
-                .onSnapshot((querySnapshot) => {
-                    querySnapshot.forEach((doc) => {
-                        console.log(doc.id); // For doc name
-                    });
-                });
 
             for(i = 0; i < keywords; i++) {
                 const keyword = i;

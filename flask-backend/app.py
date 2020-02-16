@@ -43,13 +43,12 @@ def temp():
     returnJSON = []
     if has_course is None:
         words = get_key_words(query[0], query[1])
-        returnJSON = []
         for word in words:
             video_ids = youtube_searchURL(word)
-            y = json.dumps({
+            y = {
                 'keyword': word,
                 'videos': video_ids
-            })
+            }
             returnJSON.append(y)
             for ids in video_ids:
                 if word:
@@ -71,13 +70,17 @@ def temp():
             for vid in vids:
                 vid_ids.append(vid.id)
 
-            y = json.dumps({
+            y = {
                 'keyword': keyword.id,
                 'videos': vid_ids
-            })
+            }
             returnJSON.append(y)
         print('IN FIREBASE')
-    return render_template("playlist.html", result=returnJSON)
+    print(returnJSON)
+    result = {
+        'array' : returnJSON
+    }
+    return render_template("playlist.html", result=result)
 
 
 @app.route('/insert')
