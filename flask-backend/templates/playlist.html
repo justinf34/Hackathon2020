@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>jQuery UI Tabs - Default functionality</title>
     <link rel="stylesheet" href="{{ url_for('static', filename="css/styles.css")}}">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename="css/centre.css")}}">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
@@ -45,13 +47,13 @@
                 const keyword = i;
                 const tab = $("" +
                     "<li>" +
-                    "<a href=\"#tabs-" + i + "\"> " +
+                    "<a href=\"#tabs-" + i + "\" style='padding: 0; padding-right:50px'> " +
                     actualResults[i].keyword +
                     "</a>" +
                     "</li>");
-                const title = $("<div class=\"alert alert-info\">\n" +
-                    actualResults[i].keyword +
-                    "</div>");
+                const title = $("<div class=\"alert alert-info\"><strong>\n" +
+                     actualResults[i].keyword+
+                    " </strong></div>");
                 $("#tabs").append(title);
                 $("#tabs ul").append(tab);
                 const card_text = "Some quick example text to build on the card title and make up the bulk of the card's content.";
@@ -81,14 +83,6 @@
 
 <body>
     <div>
-
-        <div class="jumbotron jumbotron-fluid" style="display: flex; flex-wrap: wrap;">
-            <div class="container">
-                <h1 class="display-4">Course Playlist Generator</h1>
-                <p class="lead">Generate a playlist based on your course outline.</p>
-            </div>
-        </div>
-
         <form action="playlist" method="GET">
             <div class="input-group mb-3">
                 <input type="text" name="search" class="form-control" placeholder="Course Name and Number" id="course"
@@ -98,6 +92,14 @@
                 </div>
             </div>
         </form>
+        <div class="jumbotron jumbotron-fluid" style="display: flex; flex-wrap: wrap;">
+            <div class="container">
+                <h1 class="display-4">Course Playlist Generator</h1>
+                <p class="lead">Generate a playlist based on your course outline.</p>
+            </div>
+        </div>
+
+
         <div id="tabs">
             <ul>
             </ul>
