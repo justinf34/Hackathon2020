@@ -28,18 +28,12 @@ def temp():
     course_name = request.args.get('search')
     query = course_name.split(' ')
 
-    print(query)
-
     has_course = course_ref.document(course_name).get()
     has_course = has_course.to_dict()
 
-    data = {
-        'rating': 0
-    }
-
-    returnJSON = []
-    if True:
+    if has_course is None:
         words = get_key_words(query[0], query[1])
+        returnJSON = []
         for word in words:
             video_ids = youtube_searchURL(word)
             y = json.dumps({
@@ -48,12 +42,8 @@ def temp():
             })
             returnJSON.append(y)
             print(returnJSON[0])
-            for ids in video_ids:
-                if word:
-                    course_ref.document(course_name).collection(u'Keywords').document(
-                        word).collection(u'Videos').document(ids).set(data)
-
-    return render_template("playlist.html", result=returnJSON)
+    else:
+        return render_template("playlist.html", result=returnJSON)
 
 
 @app.route('/insert')
@@ -69,25 +59,9 @@ def insert():
 
     keyword = 'confidence intervals for means'
     course = course_ref.document(temp)
-    keywords = course.collection(u'Keywords').stream()
-
-    returnJSON = []
-    for keyword in keywords:
-        vid_ids = []
-        vids = course.collection(u'Keywords').document(
-            keyword.id).collection(u'Videos').stream()
-        for vid in vids:
-            vid_ids.append(vid.id)
-
-        y = json.dumps({
-            'keyword': keyword.id,
-            'videos': vid_ids
-        })
-        returnJSON.append(y)
-
-    print(returnJSON)
-
-    return "hi"
+    course.collection(u'Keywords').document(
+        keyword).collection(u'Videos').document(vid_id).set(data)
+    return "I added :^)"
     # course_again = course.to_dict()
     # if course_again is None:
     #     # course = course_ref.document(temp).collection(u'Keywords').document(
