@@ -1,0 +1,20 @@
+.parent {
+    display: grid;
+    grid-template-columns: 1fr 50vw 1fr;
+    grid-template-rows: 1fr 20vh 10vh 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.div1 { grid-area: 2 / 2 / 3 / 3; }
+.div2 { grid-area: 3 / 2 / 4 / 3; }
+
+.box{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px
+}
+
+a {
+    padding: 50px;
+}
