@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery UI Tabs - Default functionality</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $( function() {
+            $( "#tabs" ).tabs();
+        } );
+    </script>
+
+    <script>
+        window.getQueryParameters = function(str) {
+            return (str || document.location.search).replace(/(^\?)/,'').split("&").map(function(n){return n=n.split("="),this[n[0]]=n[1],this;}.bind({}))[0];
+        };
+
+        $(document).ready(function(){
+            console.log("i");
+            var keywords = 5;
+            var results = 5;
+            console.log("search: " + getQueryParameters().search);
+            var search = getQueryParameters().search;
+
+            for(i = 0; i < keywords; i++) {
+                var keyword = i;
+                var tab = $("" +
+                    "<li>" +
+                        "<a href=\"#tabs-"+i+"\"> " +
+                            keyword +
+                        "</a>" +
+                    "</li>");
+                var title = $("<div class=\"alert alert-info\">\n" +
+                    i +
+                    "</div>");
+                $("#tabs").append(title);
+                $("#tabs ul").append(tab);
+                var card_text = "Some quick example text to build on the card title and make up the bulk of the card's content.";
+                var img = "https://i.ytimg.com/an_webp/K3X2Fv-c3Fc/mqdefault_6s.webp?du=3000&sqp=CMycovIF&rs=AOn4CLCZjCXgiypDr8dotNqMH1NFhlxdQw"
+
+                 var box = $("<div class='box"+i+"' id='tabs-"+i+"'style='display: flex; flex-wrap: wrap; padding: 5px'></div>");
+                 $('#tabs').append(box);
+
+
+                 for( k = 0; k < results; k++) {
+                    var card = $("" +
+                        "<div class=\"card\" style=\"width: 18rem; margin: 10px\">\n" +
+                        "  <img src=" + img + " class=\"card-img-top\" alt=\"...\">\n" +
+                        "  <div class=\"card-body\">\n" +
+                        "    <h5 class=\"card-title\">Card title "+ i + "" + k +" </h5>\n" +
+                        "    <p class=\"card-text\">"+card_text+"</p>\n" +
+                        "    <a href=\"#\" class=\"btn btn-primary\">Watch now</a>\n" +
+                        "  </div>\n" +
+                        "</div>");
+                    $(".box"+i).append(card);
+                 }
+             }
+        });
+    </script>
+</head>
+<body>
+<div>
+
+    <div class="jumbotron jumbotron-fluid" style="display: flex; flex-wrap: wrap;">
+        <div class="container">
+            <h1 class="display-4">Course Playlist Generator</h1>
+            <p class="lead">Generate a playlist based on your course outline.</p>
+        </div>
+    </div>
+
+    <form action="playlist.html" method="GET">
+        <div class="input-group mb-3">
+            <input type="text" name="search" class="form-control" placeholder="Course Name and Number" id="course" aria-label="Recipient's username" aria-describedby="basic-addon2" value="">
+            <div class="input-group-append">
+                <input action="playlist.html" type="submit" value="search" class="input-group-text" id="search"/>
+            </div>
+        </div>
+    </form>
+    <div id="tabs">
+        <ul>
+        </ul>
+    </div>
+
+
+</div>
+
+</body>
+</html>
