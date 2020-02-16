@@ -34,13 +34,17 @@ def temp():
 
     has_course = course_ref.document(course_name).get()
     has_course = has_course.to_dict()
-
+    print(has_course)
     data = {
         'rating': 0
     }
 
+    fake_data = {
+        'fake': 0
+    }
+
     returnJSON = []
-    if True:
+    if has_course is None:
         words = get_key_words(query[0], query[1])
         for word in words:
             video_ids = youtube_searchURL(word)
@@ -49,12 +53,32 @@ def temp():
                 'videos': video_ids
             })
             returnJSON.append(y)
-            print(returnJSON[0])
             for ids in video_ids:
                 if word:
+                    course_ref.document(course_name).set(fake_data)
+                    course_ref.document(course_name).collection(
+                        u'Keywords').document(word).set(fake_data)
                     course_ref.document(course_name).collection(u'Keywords').document(
                         word).collection(u'Videos').document(ids).set(data)
+        print('NOT IN FIREBASE')
 
+    else:
+        course = course_ref.document(course_name)
+        keywords = course.collection(u'Keywords').stream()
+
+        for keyword in keywords:
+            vid_ids = []
+            vids = course.collection(u'Keywords').document(
+                keyword.id).collection(u'Videos').stream()
+            for vid in vids:
+                vid_ids.append(vid.id)
+
+            y = json.dumps({
+                'keyword': keyword.id,
+                'videos': vid_ids
+            })
+            returnJSON.append(y)
+        print('IN FIREBASE')
     return render_template("playlist.html", result=returnJSON)
 
 
@@ -104,10 +128,3 @@ def insert():
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-
-# museums = db.collection_group(u'landmarks')\
-#     .where(u'type', u'==', u'museum')
-# docs = museums.stream()
-# for doc in docs:
-#     print(u'{} => {}'.format(doc.id, doc.to_dict()))
