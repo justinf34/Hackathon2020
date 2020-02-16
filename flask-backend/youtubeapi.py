@@ -94,7 +94,38 @@ def youtube_searchSTAT(VIDEO_ID):
 
     return response
 
+#returns an array 3 list
+def youtube_search3(keyword):
+    youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION,
+    developerKey=DEVELOPER_KEY)
+
+    # Get credentials and create an API client
+
+    request = youtube.search().list(
+        part="snippet",
+        q=keyword,                     #change q for keywords of search type
+        type="video"
+    )
+    response = request.execute()
+
+    IDs = []
+    title = []
+    description = []
+    res = []
+    #Finds the youtube IDs for the path of the youtube URL 
+    for search_result in response.get('items', []):
+        #print(search_result['id']['videoId'])
+        #print(search_result['snippet']['title'])
+        #print(search_result['snippet']['description'])
+        IDs.append((search_result['id']['videoId'])) 
+        title.append((search_result['snippet']['title']))
+        description.append((search_result['snippet']['title']))
+        res.append(IDs)    #index 0
+        res.append(title)    #index 1
+        res.append(description)    #index 2
+
+    return res
 
 if __name__ == "__main__":
-    print(youtube_searchURL("naruto"))  # example keyword
-    print(youtube_searchSTAT("koY0fIVMS_s"))  # example VideoID
+    print(youtube_search3("naruto"))   #example keyword
+    #print(youtube_searchSTAT("koY0fIVMS_s")) #example VideoID
