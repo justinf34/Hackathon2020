@@ -80,7 +80,7 @@ def youtube_searchSTAT(VIDEO_ID):
     # Get credentials and create an API client
 
     request = youtube.videos().list(
-        part=id, statistics
+        part="id, statistics",
         id=VIDEO_ID                    #VIDEO ID
     )
     response = request.execute()
@@ -88,7 +88,7 @@ def youtube_searchSTAT(VIDEO_ID):
     return response
 
 if __name__ == "__main__":
-    print(youtube_searchURL("naruto"))
-    print(youtube_searchURL("koY0fIVMS_s"))
+    print(youtube_searchURL("naruto"))   #example keyword
+    print(youtube_searchSTAT("koY0fIVMS_s")) #example VideoID
 
 
