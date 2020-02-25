@@ -11,8 +11,7 @@ Hackathon Themes
 2. Assisted living 
 3. University experience
 
-We decided to improve the University experience.
-Our project grabs the public univeristy calendar and parse the keywords to identifty what is important in the course, then it use the youtube api get the relevent search requests then it's send to a website as a collection of playlists for each topic.
+We decided to improve the University experience. Our project grabs the public university calendar and parse the keywords to identify what is important in the course, then it use the youtube api get the relevent search requests then it's sends to a website as a collection of playlists for each topic.
 
 ## Installation 
 
@@ -46,8 +45,8 @@ Just find the varibales called DEVELOPER_KEY OR API_KEY and add a new key.
 
 ## Authors
 
-- Justin Flores github.com/justinf34
-- Tony Wong github.com/hitony7
+- Justin Flores https://github.com/justinf34
+- Tony Wong  https://github.com/hitony7
 - Alexander Chao https://github.com/AlexanderChao14
 - Gurvir Dehal https://github.com/GurvirDehal
 - Bryan Huynh https://github.com/BryanHuynh
