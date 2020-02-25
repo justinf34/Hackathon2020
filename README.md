@@ -19,10 +19,10 @@ Our project grabs the public univeristy calendar and parse the keywords to ident
 Clone this repo 
 
 Dependencies
-Install Python 3+ 
-Install Pip
-Install VirtualEnv
-Install google api cloud python libaries 
+- Install Python 3+ 
+- Install Pip
+- Install VirtualEnv
+- Install google api cloud python libaries 
 
 How to run
 1) Change to flask-backend folder
@@ -30,9 +30,9 @@ How to run
 
 ## Build With 
 
-Frontend:HTML,CSS, Bootstrap, Jquery 
-Backend: Python/Flask , Firestore (database)
-Other: Youtube API, beautifulsoup (python parser)
+- Frontend:HTML,CSS, Bootstrap, Jquery 
+- Backend: Python/Flask , Firestore (database)
+- Other: Youtube API, beautifulsoup (python parser)
  
 ## API Usage
 
