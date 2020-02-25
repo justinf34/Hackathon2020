@@ -37,7 +37,7 @@ How to run
 
 The API keys on this repo have been removed/expired, therefore you must generate new keys if you would like to see it's functioning.
 
-YoutubeAPI https://developers.google.com/explorer-help/guides/code_samples#python
+YoutubeAPI https://developers.google.com/explorer-help/guides/code_samples#python \
 Firestore: https://firebase.google.com/docs/firestore/use-rest-api
 
 Just find the varibales called DEVELOPER_KEY OR API_KEY and add a new key.
