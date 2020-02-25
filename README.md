@@ -1,8 +1,10 @@
-# Hackathon2020
+# Calgaryhacks 2020 
 YouTube playlist compiler for University of Calgary courses 
 
 ### Overview
-This project was made for UofC Hackathon2020 hosted by CSUS (Computer science undergrad society).
+This project was made for UofC Calgaryhacks 2020 hosted by CSUS (Computer science undergrad society).
+
+Website: https://calgaryhacks-2020.devpost.com/
 
 Hackathon Themes
 1. Calgary related game
@@ -39,21 +41,21 @@ The API keys on this repo have been removed/expired, therefore you must generate
 YoutubeAPI https://developers.google.com/explorer-help/guides/code_samples#python
 Firestore: https://firebase.google.com/docs/firestore/use-rest-api
 
-Just the varibales DEVELOPER_KEY OR API_KEY with a new key.
+Just find the varibales called DEVELOPER_KEY OR API_KEY and add a new key.
 
 
 ## Authors
 
-Justin Flores github.com/justinf34
-Tony Wong github.com/hitony7
-Alexander Chao https://github.com/AlexanderChao14
-Gurvir Dehal https://github.com/GurvirDehal
-Bryan Huynh https://github.com/BryanHuynh
+- Justin Flores github.com/justinf34
+- Tony Wong github.com/hitony7
+- Alexander Chao https://github.com/AlexanderChao14
+- Gurvir Dehal https://github.com/GurvirDehal
+- Bryan Huynh https://github.com/BryanHuynh
 
 ##### Future
-Imporve parsing with ML
-Improve rating system
-Improve frontend
+- Imporve parsing with ML
+- Improve rating system
+- Improve frontend
 
 
 
